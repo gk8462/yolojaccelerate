@@ -13,6 +13,7 @@ exports.updateUser = (req, res) => {
         } else if(!users.length) {
             res.status(400).json("User not found. Please register to continue");
         }else if(users.length) {
+            console.log(users);
             if(users[0].email==req.body.email){
                 userModel.findOneAndUpdate({"_id": objectId(req.body.id)}, {$set: {
                 email: req.body.email,
